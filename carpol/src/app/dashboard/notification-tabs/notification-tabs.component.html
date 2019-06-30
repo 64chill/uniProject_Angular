@@ -1,0 +1,24 @@
+<section>
+    <mat-tab-group class="my-container" >
+        <mat-tab label="Requests" *ngIf="this.userService.getCurrenSession().acc_type == 'passenger'">
+            <ng-template matTabLabel>
+                <span >Sent Requests</span>
+            </ng-template>
+          <app-notification-requests></app-notification-requests>
+        </mat-tab>
+
+        <mat-tab label="Requests" *ngIf="this.userService.getCurrenSession().acc_type == 'driver'">
+                <ng-template matTabLabel>
+                    <span >Requests</span>
+                </ng-template>
+                <app-notification-requests-driver></app-notification-requests-driver>
+            </mat-tab>
+    
+        <mat-tab label="Ended Rides">
+            <ng-template matTabLabel>
+                <span>Ended Rides</span>
+            </ng-template>
+          <app-notification-ended-rides></app-notification-ended-rides>
+        </mat-tab>
+    </mat-tab-group>
+</section>

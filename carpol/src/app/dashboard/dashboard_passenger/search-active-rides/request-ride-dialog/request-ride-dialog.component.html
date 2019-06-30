@@ -1,0 +1,16 @@
+<section><p>
+    Please confirm that you want to request a ride
+  </p> <b>{{ data.data_name }}</b>
+  
+  
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <button type="button" mat-stroked-button (click)="onCancel()" >
+        CANCEL
+      </button>
+      <button type="button" mat-raised-button color="primary"  (click)="onRequestARide()">
+          REQUEST
+        </button>
+  </div>
+  
+  </section>
+  

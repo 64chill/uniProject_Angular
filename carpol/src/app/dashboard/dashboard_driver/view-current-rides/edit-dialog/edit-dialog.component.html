@@ -1,0 +1,100 @@
+<mat-dialog-content>
+<section>
+    <h1 fxLayout="row" fxLayoutGap="10px"  fxLayoutAlign="center center">Edit Existing Ride!</h1>
+
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+    <mat-form-field appearance="outline">
+        <input [(ngModel)]="currentRide.name" type="text"  pattern="[A-Za-z0-9]{2,20}" matInput placeholder="Ride Name" ngModel name="rideName" required #rideNameInput="ngModel" > 
+        <mat-error *ngIf="rideNameInput.hasError('required')">Please write ride name</mat-error>
+        <mat-error *ngIf="!rideNameInput.hasError('required')">Ride name should contain only letters and numbers with 2-20 characters</mat-error>
+      </mat-form-field>
+      
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline">
+    <input [(ngModel)]="currentRide.start_location" type="text"  pattern="[A-Za-z0-9 ]{2,30}" matInput placeholder="Start Location" ngModel name="startLocation" required #startLocationInput="ngModel" > 
+    <mat-error *ngIf="startLocationInput.hasError('required')">Please write start location</mat-error>
+    <mat-error *ngIf="!startLocationInput.hasError('required')">Start Location should contain only letters and numbers with 2-30 characters</mat-error>
+  </mat-form-field>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline">
+    <input [(ngModel)]="currentRide.end_location" type="text" pattern="[A-Za-z0-9 ]{2,30}" matInput placeholder="End Location" ngModel name="EndLocation" required #endLocationInput="ngModel" > 
+    <mat-error *ngIf="endLocationInput.hasError('required')">Please write end location</mat-error>
+    <mat-error *ngIf="!endLocationInput.hasError('required')">End Location should contain only letters and numbers with 2-30 characters</mat-error>
+  </mat-form-field>
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+    <mat-form-field appearance="outline">
+        <input [(ngModel)]="currentRide.start_time" type="text" pattern="[0-9]{2}:[0-9]{2}" matInput placeholder="Start Time" ngModel name="startTime" required #startTimeInput="ngModel" > 
+        <mat-error *ngIf="startTimeInput.hasError('required')">Please write start time</mat-error>
+        <mat-error *ngIf="!startTimeInput.hasError('required')">Start time should be like an example : 11:33</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+          <input [(ngModel)]="currentRide.end_time" type="text" pattern="[0-9]{2}:[0-9]{2}" matInput placeholder="End Time" ngModel name="endTime" required #endTimeInput="ngModel" > 
+          <mat-error *ngIf="endTimeInput.hasError('required')">Please write end time</mat-error>
+          <mat-error *ngIf="!endTimeInput.hasError('required')">End time should be like an example : 11:33</mat-error>
+        </mat-form-field>
+
+</div>
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline">
+    <input [(ngModel)]="currentRide.passengers_limit" type="text" pattern="[0-9]{1,2}" matInput placeholder="Passanger Limit" ngModel name="passangerLimit" required #passangerLimitInput="ngModel" > 
+    <mat-error *ngIf="passangerLimitInput.hasError('required')">Please write Passanger Limit</mat-error>
+    <mat-error *ngIf="!passangerLimitInput.hasError('required')">Passanger Limit needs to be between 0-99</mat-error>
+  </mat-form-field>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline">
+        <input [(ngModel)]="currentRide.date" matInput [matDatepicker]="picker" placeholder="Choose a date" #datepickerInput="ngModel" ngModel required name="dateFiled">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>  
+        <mat-error *ngIf="datepickerInput.hasError('required')">Choose Date</mat-error>
+        <mat-error *ngIf="!datepickerInput.hasError('required')">Please choose a date!</mat-error>   
+  </mat-form-field>
+
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline">
+    <input [(ngModel)]="userStopStr" type="text" pattern="[A-Za-z0-9,]{10,100}" matInput placeholder="Write stops: divade them with comma" ngModel name="stops" required #stopsInput="ngModel" > 
+    <mat-error *ngIf="stopsInput.hasError('required')">Please write stops</mat-error>
+    <mat-error *ngIf="!stopsInput.hasError('required')">Stops needs to be between 10 and 100 characters with comma separating each stop</mat-error>
+  </mat-form-field>
+
+		<!---------------------------------------------------------------------------------------------------------------------------------------->
+    <mat-form-field appearance="outline">
+        <mat-label>Select status</mat-label>
+        <mat-select [(value)]="currentRide.drive_ride_status" >
+          <mat-option value="ended">Mark As Ended</mat-option>
+          <mat-option value="canceled">Mark as Canceled</mat-option>
+          <mat-option value="ongoing">Mark as ongoing</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+  
+  <!---------------------------------------------------------------------------------------------------------------------------------------->
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid" >
+            Edit
+          </button>
+          <button type="button" mat-raised-button color="warn" (click)="onCancel()">
+              Cancel
+            </button>
+      </div>
+    </form>
+
+</section>
+
+</mat-dialog-content>

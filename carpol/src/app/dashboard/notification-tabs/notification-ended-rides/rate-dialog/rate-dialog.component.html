@@ -1,0 +1,42 @@
+<mat-dialog-content>
+  <p class="my-margin">
+    Leave feedback for <b>{{ data.data_name }}</b>
+  </p> 
+
+  <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10px"
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+<mat-form-field appearance="outline" floatPlaceholder="always" floatLabel="always" class="mat-form-field--no-underline">
+    <mat-label>Feedback</mat-label>
+  <input matInput placeholder style="display: none">
+  <mat-radio-group ngModel name="feedback" [(ngModel)]="feedback" required #feedbackInput="ngModel" fxLayout fxLayoutAlign="center" fxLayoutGap="20px">
+    <mat-radio-button value="positive">Positive</mat-radio-button>
+    <mat-radio-button value="negative">Negative</mat-radio-button>
+  </mat-radio-group>
+</mat-form-field>
+
+<!---------------------------------------------------------------------------------------------------------------------------------------->
+      <mat-form-field class="example-full-width">
+          <textarea pattern="[A-Za-z0-9 ,!.?]{0,40}" matInput placeholder="Leave a comment"
+          name="comment"  #commentInput="ngModel"ngModel></textarea>
+          <mat-error *ngIf="commentInput.hasError('required')">Write additional comment</mat-error>
+          <mat-error *ngIf="!commentInput.hasError('required')">Comment must be between 0 and 40 characters</mat-error>
+        </mat-form-field>
+
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+          <button type="button" mat-raised-button color="warn" (click)="onCancel()" >
+            CANCEL
+          </button>
+
+          <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid" >
+              Submit Feedback
+            </button>
+      </div>
+      </form>
+  
+  
+ 
+
+
+</mat-dialog-content>

@@ -1,0 +1,17 @@
+<mat-dialog-content>
+  <section>
+    Stops for the ride:
+    <div *ngFor="let item of stopsArray" fxLayout="column" fxLayoutAlign="center center" class="containerDIV" >
+          {{item.stop_name}}
+    </div>
+  
+  
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <button type="button" mat-raised-button color="primary" (click)="onCancel()" >
+        CANCEL
+      </button>
+      </div>
+  
+  </section>
+</mat-dialog-content>
+  

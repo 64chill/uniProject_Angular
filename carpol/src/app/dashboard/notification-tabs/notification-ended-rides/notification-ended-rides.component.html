@@ -1,0 +1,58 @@
+
+
+<section>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <mat-form-field>
+            <mat-label>Filter Rides</mat-label>
+            <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+    </div> 
+
+  
+
+<!-- property binding -->
+<mat-table [dataSource]="notificationSource" matSort >
+ 
+<!-- driver name -->
+<ng-container matColumnDef="driver_name">
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Driver Name</mat-header-cell>
+  <mat-cell *matCellDef="let element">
+      <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_driver}" (click)="onProfileUse(element.id_driver)">
+        {{element.driverName}}
+      </a>
+    </mat-cell>
+</ng-container>
+
+<!-- passenger name -->
+<ng-container matColumnDef="passenger_name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Passanger Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+          <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passanger}" (click)="onProfileUse(element.id_passanger)">
+            {{element.passengerName}}
+          </a>        
+      </mat-cell>
+  </ng-container>
+
+  <!-- action -->
+<ng-container matColumnDef="action" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+        <button
+        *ngIf="userService.getCurrenSession().acc_type == 'driver'"
+         mat-flat-button color="accent"  (click)="onRateUser(element.id_passanger)">Rate Passenger</button>
+         <button
+         *ngIf="userService.getCurrenSession().acc_type == 'passenger'"
+         mat-flat-button color="accent"  (click)="onRateUser(element.id_driver, element.notification_id)">Rate Driver</button>
+    </mat-cell>
+  </ng-container>
+
+
+
+ <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+ <mat-row *matRowDef="let rows; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSize]="3" [pageSizeOptions]="[2,3,4,6,8]"></mat-paginator>
+
+</section>

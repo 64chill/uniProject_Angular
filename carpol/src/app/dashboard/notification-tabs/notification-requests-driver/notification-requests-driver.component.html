@@ -1,0 +1,55 @@
+
+
+<section>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <mat-form-field>
+            <mat-label>Filter Rides</mat-label>
+            <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+          </mat-form-field>
+    </div> 
+
+  
+
+<!-- property binding -->
+<mat-table [dataSource]="notificationSource" matSort >
+ 
+<!-- driver name -->
+<ng-container matColumnDef="passenger_name" >
+  <mat-header-cell *matHeaderCellDef mat-sort-header>Passenger Name</mat-header-cell>
+  <mat-cell *matCellDef="let element">
+      <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passanger}" (click)="onProfileUse(element.id_passanger)">
+        {{element.passengerName}}
+      </a>
+    </mat-cell>
+</ng-container>
+
+<!-- ride name -->
+<ng-container matColumnDef="ride_name" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Ride Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.rideName }}</mat-cell>
+  </ng-container>
+
+  <!-- location name -->
+<ng-container matColumnDef="location" >
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Location</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.locationToFrom }}</mat-cell>
+  </ng-container>
+
+  <!-- approved name -->
+  <ng-container matColumnDef="actions" >
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <button mat-flat-button color="warn"  (click)="onApprove(element.notification_id)">Approve</button>
+          <button mat-flat-button color="accent"  (click)="onDismiss(element.notification_id)">Dismiss</button>
+      </mat-cell>
+    </ng-container>
+
+
+ <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+ <mat-row *matRowDef="let rows; columns: displayedColumns"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSize]="3" [pageSizeOptions]="[2,3,4,6,8]"></mat-paginator>
+
+</section>
