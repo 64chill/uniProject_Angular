@@ -52,7 +52,7 @@ export class EditDialogComponent implements OnInit {
 
   onSubmit(form : NgForm) {
     Object.keys(this.currentRide).forEach(key=>this.rideTEMP[key]=this.currentRide[key]);
-    if(this.currentRide.drive_ride_status == "ended"){
+    if(this.currentRide.drive_ride_status == "finished"){
       let id_ride =  this.rideTEMP.id_drive_rides;
       let id_driver = this.rideTEMP.id_driver;
       let objectListPassData = this.rideTEMP.current_passengers_data;

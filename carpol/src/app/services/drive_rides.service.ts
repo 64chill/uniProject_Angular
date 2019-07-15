@@ -8,7 +8,7 @@ export class DriveRidesService {
         {
             id_drive_rides  : 1,
             id_driver       : 2,
-            name            : "drive 1",
+            name            : "drive1",
             start_location  : "start loc1",
             end_location    : "end loc 1",
             departure_time  : "10:30",
@@ -30,13 +30,13 @@ export class DriveRidesService {
         {
             id_drive_rides  : 2,
             id_driver       : 2,
-            name            : "drive 2",
+            name            : "drive2",
             start_location  : "start loc2",
             end_location    : "end loc 2",
             departure_time  : "12:30",
             start_time      : "12:30",
             end_time        : "13:30",
-            drive_ride_status :  'ended',
+            drive_ride_status :  'finished',
             passengers_limit  : 5,
             current_passengers_number : 1,
             current_passengers_data : [
@@ -123,7 +123,7 @@ export class DriveRidesService {
         this.driveRideList = filtered;
     }
 
-    getPassangersArray(id_drive:number){
+    getPassengersArray(id_drive:number){
         for (var i=0 ; i < this.driveRideList.length ; i++){
             if (this.driveRideList[i]["id_drive_rides"] == id_drive) {
                 return this.driveRideList[i]["current_passengers_data"];

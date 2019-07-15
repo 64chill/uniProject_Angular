@@ -1,6 +1,6 @@
 <section>
     Following passengers are registered for this ride:
-    <div *ngFor="let item of passangersArray" fxLayout="column" fxLayoutAlign="center center" >
+    <div *ngFor="let item of passengersArray" fxLayout="column" fxLayoutAlign="center center" >
         <a [routerLink]="['/profile']" [queryParams]="{userID: item.pID}" (click)="onPassengerView(item.pID)">
           {{item.name}}
         </a>

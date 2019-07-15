@@ -48,7 +48,7 @@ onSubmit(form : NgForm) {
   //set comment if not empty
   if(form.value.comment != ""){
     //setNewComment(id:number,id_from:number, comment:string){
-      //kome, od , comment
+      //to whom, from , comment
     this.reputationService.setNewComment(this.data.data_id, this.userService.getCurrenSession().id_user ,form.value.comment );
   }
   this._snackBar.open("Success! Feedback score was added!", "close", {

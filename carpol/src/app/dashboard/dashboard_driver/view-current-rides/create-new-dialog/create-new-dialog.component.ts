@@ -39,7 +39,7 @@ export class CreateNewDialogComponent implements OnInit {
       form.value.EndLocation,
       form.value.startTime,
       form.value.endTime,
-      form.value.passangerLimit,
+      form.value.passengerLimit,
       new Date(form.value.dateFiled),
       stopsDriverRidesStopsModelList);
 

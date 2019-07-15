@@ -36,7 +36,7 @@ export class NotificationRequestsDriverComponent implements OnInit, AfterViewIni
   setUpValues(){
     this.notificationSource.data  = this.notificationService.getNotificationsForSpecificDriverRequest(this.userService.getCurrenSession().id_user)
     for (let elem in this.notificationSource.data){
-      let current_user = this.userService.getProfileData(this.notificationSource.data[elem].id_passanger);
+      let current_user = this.userService.getProfileData(this.notificationSource.data[elem].id_passenger);
       let uniqueRide = this.driveRidesService.getUniqueRide(this.notificationSource.data[elem].ride_id);
 
       let rideName = uniqueRide.name;
@@ -74,14 +74,14 @@ export class NotificationRequestsDriverComponent implements OnInit, AfterViewIni
 
     switch(result) { 
       case "success": { 
-        this._snackBar.open("Success! You have approved the passanger", "close", {
+        this._snackBar.open("Success! You have approved the passenger", "close", {
           duration: 2000,
         });
          
          break; 
       }
       case "aleardy_exist": { 
-        this._snackBar.open("Passanger is already registered!", "close", {
+        this._snackBar.open("Passenger is already registered!", "close", {
           duration: 2000,
         });
         

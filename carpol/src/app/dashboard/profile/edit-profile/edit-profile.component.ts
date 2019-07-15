@@ -35,17 +35,6 @@ export class EditProfileComponent implements OnInit {
   }
   onSubmit(form : NgForm) {
     Object.keys(this.currentUser).forEach(key=>this.userTEMP[key]=this.currentUser[key]);
-    /*
-    this.userService.updateUser({
-      id_user         : this.data.userid,       // later we are going to use this to put current logged in user
-        fname           : form.value.firstName,       // to simulate the SESSION on the backend
-        lname           : form.value.lastName,
-        contact_email   : form.value.email,
-        contact_phone   : form.value.phone,
-        contact_address : form.value.address,
-        password        : form.value.password,
-        acc_type        : form.value.typeOfUser
-    }); */
     this.onCancel();
   }
 

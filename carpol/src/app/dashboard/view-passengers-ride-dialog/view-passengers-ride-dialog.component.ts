@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./view-passengers-ride-dialog.component.css']
 })
 export class ViewPassengersRideDialogComponent implements OnInit {
-  private passangersArray = [];
+  private passengersArray = [];
 
   constructor(private dialogRef: 
     MatDialogRef<ViewPassengersRideDialogComponent>,
@@ -19,12 +19,12 @@ export class ViewPassengersRideDialogComponent implements OnInit {
       private usersService : UsersService,
       private router: Router,
      ) {
-      let passengerObjectArray = this.driverService.getPassangersArray(data.data_id);
+      let passengerObjectArray = this.driverService.getPassengersArray(data.data_id);
 
       for (let elem in passengerObjectArray){
         let userData = this.usersService.getProfileData(passengerObjectArray[elem].id_user);
 
-        this.passangersArray.push({
+        this.passengersArray.push({
           pID : passengerObjectArray[elem].id_user,
           name : `${userData.fname} ${userData.lname}`,
         });

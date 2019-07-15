@@ -50,9 +50,9 @@
 
 <!---------------------------------------------------------------------------------------------------------------------------------------->
 <mat-form-field>
-    <input type="text" pattern="[0-9]{1,2}" matInput placeholder="Passanger Limit" ngModel name="passangerLimit" required #passangerLimitInput="ngModel" > 
-    <mat-error *ngIf="passangerLimitInput.hasError('required')">Please write Passanger Limit</mat-error>
-    <mat-error *ngIf="!passangerLimitInput.hasError('required')">Passanger Limit needs to be between 0-99</mat-error>
+    <input type="text" pattern="[0-9]{1,2}" matInput placeholder="Passenger Limit" ngModel name="passengerLimit" required #passengerLimitInput="ngModel" > 
+    <mat-error *ngIf="passengerLimitInput.hasError('required')">Please write Passenger Limit</mat-error>
+    <mat-error *ngIf="!passengerLimitInput.hasError('required')">Passenger Limit needs to be between 0-99</mat-error>
   </mat-form-field>
 
 <!---------------------------------------------------------------------------------------------------------------------------------------->

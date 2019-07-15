@@ -1,7 +1,6 @@
 import { NgModule } from '../../node_modules/@angular/core';
 import {Routes, RouterModule } from '@angular/router';
 
-// Kreiraju se automatski prilikom navođenja komponenti u nizu rute ispod
 import { LoginComponent } from './frontpage/login/login.component';
 import { SignupComponent } from './frontpage/signup/signup.component';
 import { ProfileComponent } from './dashboard/profile/profile.component';

@@ -31,12 +31,6 @@ export class ProfileComponent implements OnInit {
       if( typeof urlParse[1] != 'undefined' || urlParse[1] != null ){
         this.userIDtoShow = Number(urlParse[1]);
       }
-    /*this.route.queryParams.subscribe(params => {
-      console.log(this.router.url.split("=")[1]);
-      if (!isNaN(Number(params['userID']))){
-        this.userIDtoShow = Number(params['userID']);
-      }  
-      });*/
       if (this.userIDtoShow == -1 ){
         this.userIDtoShow = userService.getCurrenSession().id_user;
       }

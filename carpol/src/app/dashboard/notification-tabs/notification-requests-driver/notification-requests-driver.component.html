@@ -18,7 +18,7 @@
 <ng-container matColumnDef="passenger_name" >
   <mat-header-cell *matHeaderCellDef mat-sort-header>Passenger Name</mat-header-cell>
   <mat-cell *matCellDef="let element">
-      <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passanger}" (click)="onProfileUse(element.id_passanger)">
+      <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passenger}" (click)="onProfileUse(element.id_passenger)">
         {{element.passengerName}}
       </a>
     </mat-cell>

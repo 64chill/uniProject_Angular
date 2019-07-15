@@ -6,7 +6,7 @@ export class NotificationsService {
     private notificationList : Array<NotificationsModel> = [
         {
             notification_id : 1,
-            id_passanger : 1,
+            id_passenger : 1,
             id_driver   : 2,
             type: 'request',
             approved : false,
@@ -15,7 +15,7 @@ export class NotificationsService {
         },
         {
             notification_id : 2,
-            id_passanger : 5,
+            id_passenger : 5,
             id_driver   : 2,
             type: 'request',
             approved : false,
@@ -24,7 +24,7 @@ export class NotificationsService {
         },
         {
             notification_id : 3,
-            id_passanger : 1,
+            id_passenger : 1,
             id_driver   : 2,
             type: 'ride_end',
             ride_end_rated_driver : false,
@@ -39,7 +39,7 @@ export class NotificationsService {
             {
                 ride_id : ride_id,
                 notification_id : newID,
-                id_passanger : in_id_pass,
+                id_passenger : in_id_pass,
                 id_driver   : in_id_driver,
                 type: 'request',
                 approved : false,
@@ -54,7 +54,7 @@ export class NotificationsService {
              {
                 ride_id : ride_id,
                  notification_id : newID,
-                 id_passanger : in_id_pass,
+                 id_passenger : in_id_pass,
                  id_driver   : in_id_driver,
                  type: 'ride_end',
                  ride_end_rated_driver : false,
@@ -86,7 +86,7 @@ export class NotificationsService {
         let returnList  : Array<NotificationsModel> = [];
         for (var i=0 ; i < this.notificationList.length ; i++){
             if(this.notificationList[i]["type"] == "request"){
-                if (this.notificationList[i]["id_passanger"] == in_id) {
+                if (this.notificationList[i]["id_passenger"] == in_id) {
                     returnList.push(this.notificationList[i]);
                 }
             }
@@ -111,7 +111,7 @@ export class NotificationsService {
     let returnList  : Array<NotificationsModel> = [];
     for (var i=0 ; i < this.notificationList.length ; i++){
         if(this.notificationList[i]["type"] == "ride_end"){
-            if (this.notificationList[i]["id_passanger"] == in_id && this.notificationList[i]["ride_end_rated_passenger"] == false ) {
+            if (this.notificationList[i]["id_passenger"] == in_id && this.notificationList[i]["ride_end_rated_passenger"] == false ) {
                 returnList.push(this.notificationList[i]);
             }else
             if (this.notificationList[i]["id_driver"] == in_id && this.notificationList[i]["ride_end_rated_driver"] == false  ){
@@ -141,7 +141,7 @@ export class NotificationsService {
    getPassengerIdFromNotification(in_id : number){
     for (var i=0 ; i < this.notificationList.length ; i++){
         if(this.notificationList[i]["notification_id"] == in_id){
-            return this.notificationList[i]["id_passanger"];
+            return this.notificationList[i]["id_passenger"];
             }
         }
     }

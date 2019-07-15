@@ -1,6 +1,6 @@
 export interface NotificationsModel{
     notification_id : number,
-    id_passanger : number,
+    id_passenger : number,
     id_driver   : number,
     type: 'request' | 'ride_end',
     approved? : boolean,

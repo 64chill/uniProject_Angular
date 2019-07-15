@@ -20,14 +20,6 @@ export class SignupComponent implements OnInit {
 
   onSubmit(form : NgForm) {
     if(!this.userService.doesEmailExists(form.value.email)){
-      /*
-      in_fname:string,
-        in_lname:string,
-        in_contact_email:string,
-        in_contact_phone:string,
-        in_contact_address:string,
-        in_password:string,
-        in_acc_type:string,){*/
       let newID = this.userService.addUser(
         form.value.firstName,
         form.value.lastName,

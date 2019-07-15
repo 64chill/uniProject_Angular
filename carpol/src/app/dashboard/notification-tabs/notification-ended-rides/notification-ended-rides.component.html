@@ -26,9 +26,9 @@
 
 <!-- passenger name -->
 <ng-container matColumnDef="passenger_name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Passanger Name</mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Passenger Name</mat-header-cell>
     <mat-cell *matCellDef="let element">
-          <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passanger}" (click)="onProfileUse(element.id_passanger)">
+          <a [routerLink]="['/profile']" [queryParams]="{userID: element.id_passenger}" (click)="onProfileUse(element.id_passenger)">
             {{element.passengerName}}
           </a>        
       </mat-cell>
@@ -40,7 +40,7 @@
     <mat-cell *matCellDef="let element">
         <button
         *ngIf="userService.getCurrenSession().acc_type == 'driver'"
-         mat-flat-button color="accent"  (click)="onRateUser(element.id_passanger)">Rate Passenger</button>
+         mat-flat-button color="accent"  (click)="onRateUser(element.id_passenger, element.notification_id)">Rate Passenger</button>
          <button
          *ngIf="userService.getCurrenSession().acc_type == 'passenger'"
          mat-flat-button color="accent"  (click)="onRateUser(element.id_driver, element.notification_id)">Rate Driver</button>

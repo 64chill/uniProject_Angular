@@ -33,7 +33,7 @@ export class NotificationEndedRidesComponent implements OnInit {
     this.notificationSource.data  = this.notificationService.getNotificationsForSpecificUserEndedRides(this.userService.getCurrenSession().id_user);
     for (let elem in this.notificationSource.data){
         let current_driver = this.userService.getProfileData(this.notificationSource.data[elem].id_driver);
-        let current_passenger = this.userService.getProfileData(this.notificationSource.data[elem].id_passanger);
+        let current_passenger = this.userService.getProfileData(this.notificationSource.data[elem].id_passenger);
         this.notificationSource.data[elem]["driverName"] = `${current_driver.fname} ${current_driver.lname}`;
         this.notificationSource.data[elem]["passengerName"] = `${current_passenger.fname} ${current_passenger.lname}`;
     }

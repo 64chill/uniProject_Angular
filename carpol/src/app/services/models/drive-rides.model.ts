@@ -7,23 +7,17 @@ export interface DriveRidesModel {
     departure_time  : string;
     start_time      : string;
     end_time        : string;
-    drive_ride_status :  'ended' | 'canceled' | 'ongoing';
+    drive_ride_status :  'finished' | 'canceled' | 'ongoing';
     passengers_limit  : number;
     current_passengers_number : number;
     current_passengers_data : Array<CurrentPassengersModel>;
     drive_ride_stops        : Array<DriveRidesStopsModel>;
     date  : Date;
-    //id_current_passengers : number; // CurrentPassengers    interface
-    //id_drive_rides_stops:   number; // DriveRidesStops      interface 
 }
 
 export interface CurrentPassengersModel{
-    //id_current_passenger : number;
-    //id_drive_rides        : number;
     id_user               : number;
 }
 export interface DriveRidesStopsModel{
-    //id_drive_rides_stops    : number;
-    //id_drive_rides          : number;
     stop_name  : string;
 }

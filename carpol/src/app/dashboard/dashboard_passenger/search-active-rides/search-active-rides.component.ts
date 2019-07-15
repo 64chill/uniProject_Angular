@@ -102,7 +102,7 @@ export class SearchActiveRidesComponent implements OnInit, AfterViewInit {
          break; 
       }
       case "aleardy_exist": { 
-        this._snackBar.open("You are already registered as passanger!", "close", {
+        this._snackBar.open("You are already registered as passenger!", "close", {
           duration: 2000,
         });
         

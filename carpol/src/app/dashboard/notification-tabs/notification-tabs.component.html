@@ -2,7 +2,7 @@
     <mat-tab-group class="my-container" >
         <mat-tab label="Requests" *ngIf="this.userService.getCurrenSession().acc_type == 'passenger'">
             <ng-template matTabLabel>
-                <span >Sent Requests</span>
+                <span >Sheduled Rides</span>
             </ng-template>
           <app-notification-requests></app-notification-requests>
         </mat-tab>
@@ -14,9 +14,9 @@
                 <app-notification-requests-driver></app-notification-requests-driver>
             </mat-tab>
     
-        <mat-tab label="Ended Rides">
+        <mat-tab label="Finished Rides">
             <ng-template matTabLabel>
-                <span>Ended Rides</span>
+                <span>Finished Rides</span>
             </ng-template>
           <app-notification-ended-rides></app-notification-ended-rides>
         </mat-tab>

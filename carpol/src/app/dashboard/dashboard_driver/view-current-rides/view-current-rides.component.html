@@ -80,10 +80,14 @@
    <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef mat-sort-header>Actions</mat-header-cell>
     <mat-cell *matCellDef="let element">
-      <button mat-stroked-button 
-      [disabled]="driveRidesService.getUniqueRide(element.id_drive_rides).drive_ride_status =='ended'"
+      <button mat-stroked-button
+      color="primary"
+      [disabled]="driveRidesService.getUniqueRide(element.id_drive_rides).drive_ride_status =='finished'"
        (click)="editRide(element.id_drive_rides)">Edit</button>
-      <button mat-stroked-button  (click)="deleteRide(element.id_drive_rides, element.name)">Delete</button>
+      <button
+      mat-stroked-button
+      color="warn"
+      (click)="deleteRide(element.id_drive_rides, element.name)">Delete</button>
     </mat-cell>
   </ng-container>
 
